@@ -1,5 +1,11 @@
+class LinkedNode:
+    """Node for a linked list"""
+    def __init__(self, value, next = None):
+        self.value = value
+        self.next = next
+
 class LinkedList:
-    def __init__(self, head):
+    def __init__(self, head: LinkedNode = None):
         self.head = head
 
     def iter_seq(self):
@@ -41,6 +47,9 @@ class LinkedList:
         node.next = LinkedNode(value = value, next = next)
 
     def add(self, value):
+        if self.head == None:
+            self.head = LinkedNode(value = value)
+            return
         cur_node = self.head
         while cur_node != None:
             node = cur_node
@@ -56,14 +65,10 @@ class LinkedList:
             return
         node = self.get_at(n - 1)
         node.next = self.get_at(n + 1)
-        
 
-class LinkedNode:
-    def __init__(self, value, next = None):
-        self.value = value
-        self.next = next
 
 class LinkedListConstructor:
+    """Linked list contrsuctors"""
     def from_list(source_list: list):
         """Returns a linked list from a list"""
         source_list.reverse()

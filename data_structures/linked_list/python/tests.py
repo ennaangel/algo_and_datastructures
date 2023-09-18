@@ -28,3 +28,8 @@ ll.insert_at(6, 'new_new')
 ll.add('added')
 
 ll.iter_seq()
+
+ll2 = LinkedList()
+ll2.add('add')
+ll2.add('added')
+ll2.iter_seq()

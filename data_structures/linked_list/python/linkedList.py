@@ -47,7 +47,7 @@ class LinkedList:
         node.next = LinkedNode(value = value, next = next)
 
     def add(self, value):
-        if self.head == None:
+        if self.head == None: #Add nodes to an empty list
             self.head = LinkedNode(value = value)
             return
         cur_node = self.head

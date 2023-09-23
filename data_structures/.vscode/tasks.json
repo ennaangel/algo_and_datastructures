@@ -9,7 +9,9 @@
                 "/EHsc",
                 "/nologo",
                 "/Fe${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe",
-                "${file}"
+                "/Fd${workspaceFolder}\\build\\vc140.pdb",
+                "/Fo${workspaceFolder}\\build\\${fileBasenameNoExtension}.obj",
+                "${file}",
             ],
             "options": {
                 "cwd": "${workspaceFolder}"

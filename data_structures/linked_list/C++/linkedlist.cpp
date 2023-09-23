@@ -7,6 +7,9 @@ struct Node
     };
 
 class LinkedList{
+    private:
+        Node* head;
+        Node* tail;
     public:
         LinkedList(){
             head = nullptr;
@@ -18,7 +21,7 @@ class LinkedList{
             temp->value = value;        //Assign the value to the value stored at temp
             temp->next = nullptr;       //Add the next pointer to null
 
-            if (head == nullptr){     //If it is the first node, assign it as head and tail
+            if (head == nullptr){       //If it is the first node, assign it as head and tail
                     head = temp;
                     tail = temp;
                 }
@@ -37,10 +40,6 @@ class LinkedList{
                 current = current->next; //Set current to next from current.
             }
         }
-
-    private:
-        Node* head;
-        Node* tail;
     };
 
 

@@ -1,7 +1,7 @@
 #include <iostream>
+#include <exception>
 
-struct Node
-    {
+struct Node{
         int value;
         Node* next;
     };
@@ -17,6 +17,7 @@ class LinkedList{
             };
 
         void addNode(int value){
+            //Adds a node with the given value at the end of the LinkedList
             Node* temp = new Node;      //Store the pointer to the new node in temp
             temp->value = value;        //Assign the value to the value stored at temp
             temp->next = nullptr;       //Add the next pointer to null
@@ -38,8 +39,25 @@ class LinkedList{
             while (current != nullptr){
                 std::cout << current-> value << std::endl;
                 current = current->next; //Set current to next from current.
+                }
             }
-        }
+        
+        int getValueAt(int n){
+            Node* current = head;
+            int i = 0;
+
+            while (i < n){
+                i++;
+                if (current->next == nullptr){
+                    std::cout << "Error";
+                    throw;
+                    std::cout << "Test";
+                    break;
+                    }
+                current = current->next;
+                }
+            return current->value;
+            }
     };
 
 
@@ -50,4 +68,6 @@ void main(){
     LL.addNode(50);
 
     LL.printList();
+
+    std::cout << LL.getValueAt(3);
 }

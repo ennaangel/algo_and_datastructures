@@ -11,7 +11,8 @@ class LinkedList{
             head = nullprt;
             tail = nullptr;
             };
-        void add_node(string value){
+
+        void addNode(string value){
             node* temp = new Node;      //Store the pointer to the new node in temp
             temp->value = value;        //Assign the value to the value stored at temp
             temp->next = nullptr;       //Add the next pointer to null
@@ -28,6 +29,10 @@ class LinkedList{
                 }
 
             }
+        
+        void printList(){
+            
+        }
 
     private:
         Node* head;

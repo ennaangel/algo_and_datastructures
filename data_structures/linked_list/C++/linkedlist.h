@@ -1,11 +1,6 @@
 #ifndef linkedlist 
 #define linkedlist
 
-struct Node{
-        int value;
-        Node* next;
-    };
-
 class LinkedList{
     public:
         LinkedList();

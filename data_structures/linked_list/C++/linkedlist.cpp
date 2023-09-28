@@ -55,6 +55,20 @@ class LinkedList{
             }
             return current->value;
             }
+
+        int pop(){
+            Node* current = head;
+            Node* previous = head;
+
+            while(current->next != nullptr){
+                previous = current;
+                current = current->next;
+                }
+
+            previous->next = nullptr;
+            tail = previous;
+            return current->value;
+            }
     };
 
 
@@ -67,4 +81,9 @@ void main(){
     LL.printList();
 
     std::cout << LL.getValueAt(2);
+    int pop1 = LL.pop();
+    int pop2 = LL.pop();
+
+    std::cout << pop1;
+    std::cout << pop2;
 }

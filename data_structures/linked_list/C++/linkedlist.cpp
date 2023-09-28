@@ -46,16 +46,13 @@ class LinkedList{
             Node* current = head;
             int i = 0;
 
-            while (i < n){
+            while (i < n && current != nullptr){
                 i++;
-                if (current->next == nullptr){
-                    std::cout << "Error";
-                    throw;
-                    std::cout << "Test";
-                    break;
-                    }
                 current = current->next;
                 }
+            if (current == nullptr){
+                return 0;
+            }
             return current->value;
             }
     };

@@ -8,13 +8,13 @@
                 "/Zi",
                 "/EHsc",
                 "/nologo",
-                "/Fe${workspaceFolder}\\build\\${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "/Fd${workspaceFolder}\\build\\${fileDirname}\\$vc140.pdb",
-                "/Fo${workspaceFolder}\\build\\${fileDirname}\\${fileBasenameNoExtension}.obj",
+                "/Fe${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe",
+                "/Fd${workspaceFolder}\\build\\vc140.pdb",
+                "/Fo${workspaceFolder}\\build\\${fileBasenameNoExtension}.obj",
                 "${file}"
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${workspaceFolder}"
             },
             "problemMatcher": [
                 "$msCompile"

@@ -51,7 +51,7 @@ class LinkedList{
                 current = current->next;
                 }
             if (current == nullptr){
-                return 0;
+                return 0;               //TODO: Throw an error when index is larger then length of list
             }
             return current->value;
             }
@@ -66,5 +66,5 @@ void main(){
 
     LL.printList();
 
-    std::cout << LL.getValueAt(3);
+    std::cout << LL.getValueAt(2);
 }

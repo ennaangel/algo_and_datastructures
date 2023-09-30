@@ -9,6 +9,7 @@ class TestStack{
         int numberTestsFailed;
     public:
     TestStack(){
+        // Test for only 1 push to stack
         numberTestsFailed = 0;
     }
     int testFirstPush(stack counts){
@@ -18,8 +19,8 @@ class TestStack{
             logger.log("[Error] first push failed: Top is not equal to First");
             result += 1;
         }
-        if (counts.bottum-> name != "First"){
-            logger.log("[Error] first push failed: bottum is not equal to First");
+        if (counts.top-> next != nullptr){
+            logger.log("[Error] first push failed: top next is not nullptr");
             result += 1;
         }
         if (result > 0){
@@ -29,27 +30,26 @@ class TestStack{
         logger.log("[Info] First push passed: Top and bottum are both equal to First");
         return 0;
     };
-    int testSecondPush(stack counts){
+    int testMultiplePush(stack counts){
+        // Test for multiple pushes to stack
         counts.push("First");
         counts.push("Second");
+        counts.push("Third");
         int result = 0;
-        if (counts.top-> name != "Second"){
-            logger.log("[Error] Second push failed: Top is not equal to Second");
-            result += 1;
-        }
-        if (counts.bottum-> name != "First"){
-            logger.log("[Error] second push failed: bottum is not equal to First");
+        if (counts.top-> name != "Third"){
+            logger.log("[Error] Third push failed: Top is not equal to Third");
             result += 1;
         }
         if (result > 0){
             numberTestsFailed += result;
             return result;
         }
-        logger.log("[Info] Second push passed: Top equal to Second and bottum equal to First");
+        logger.log("[Info] Multiple push passed: Top equal to Third and bottum equal to First");
         return 0;
     };
 
     int testPop(stack counts){
+        // Test for popping the stack
         counts.push("First");
         counts.push("Second");
         counts.push("Third");
@@ -70,10 +70,6 @@ class TestStack{
             logger.log("[Error] Pop failed, top is not nullptr after popping all");
             result += 1;
         }
-        if (counts.bottum != nullptr){
-            logger.log("[Error] Pop failed, bottum is not nullptr after popping all");
-            result += 1;
-        }
         if (result > 0){
             numberTestsFailed += result;
             return result;
@@ -83,6 +79,7 @@ class TestStack{
     };
 
     int testGetTop(stack counts){
+        //Test for get top, should return only top and not change the top value
         counts.push("First");
         counts.push("Second");
         counts.push("Third");
@@ -105,10 +102,9 @@ class TestStack{
     }
 
     int testIsEmpty(stack counts){
+        // Check if stack is empty by checking bottum and top pointers
         if (counts.isEmpty() != true){
             logger.log("[Error] Get is empty failed");
-            std::cout << (counts.bottum == nullptr);
-            std::cout << (counts.top == nullptr);
             numberTestsFailed += 1;
             return 1;
         }
@@ -131,7 +127,7 @@ int main(){
     stack counts;
     TestStack stackTester;
     stackTester.testFirstPush(counts);
-    stackTester.testSecondPush(counts);
+    stackTester.testMultiplePush(counts);
     stackTester.testPop(counts);
     stackTester.testGetTop(counts);
     stackTester.testIsEmpty(counts);

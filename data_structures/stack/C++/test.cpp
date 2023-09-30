@@ -64,6 +64,16 @@ class TestStack{
             logger.log("[Error] Pop failed, new top is not second");
             result += 1;
         }
+        counts.pop();
+        counts.pop();
+        if (counts.top != nullptr){
+            logger.log("[Error] Pop failed, top is not nullptr after popping all");
+            result += 1;
+        }
+        if (counts.bottum != nullptr){
+            logger.log("[Error] Pop failed, bottum is not nullptr after popping all");
+            result += 1;
+        }
         if (result > 0){
             numberTestsFailed += result;
             return result;
@@ -94,6 +104,18 @@ class TestStack{
         return 0;
     }
 
+    int testIsEmpty(stack counts){
+        if (counts.isEmpty() != true){
+            logger.log("[Error] Get is empty failed");
+            std::cout << (counts.bottum == nullptr);
+            std::cout << (counts.top == nullptr);
+            numberTestsFailed += 1;
+            return 1;
+        }
+        logger.log("[Info] Get is empty passed");
+        return 0;
+    }
+
     int getNumberTestsFailed(){
         // Returns the number of tests failed stores it in the logs
         string resultMessage = "[INFO] Number of tests failed: ";
@@ -105,12 +127,14 @@ class TestStack{
 };
 
 
-void main(){
+int main(){
     stack counts;
     TestStack stackTester;
     stackTester.testFirstPush(counts);
     stackTester.testSecondPush(counts);
     stackTester.testPop(counts);
     stackTester.testGetTop(counts);
+    stackTester.testIsEmpty(counts);
     stackTester.getNumberTestsFailed();
+    return 0;
 }

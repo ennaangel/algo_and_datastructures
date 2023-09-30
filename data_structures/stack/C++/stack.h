@@ -27,10 +27,20 @@ class stack{
             top = temp;
         }
         else{
-            top->next = temp;
+            temp->next = top;
             top = temp;
         }
     };
+
+    string pop(){
+        string name = top->name;
+        top = top->next;
+        return name;
+    }
+
+    string getTop(){
+        return top->name;
+    }
 
 };
 

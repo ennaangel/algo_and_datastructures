@@ -11,27 +11,31 @@ struct Element{
 
 class stack{
     public:
-    Element* bottum;
     Element* top;
     stack(){
-        bottum = nullptr;
         top = nullptr;
     };
 
     void push(string name){
         Element* temp = new Element;
         temp->name = name;
-        temp->next = nullptr;
-        if (bottum == nullptr){
-            bottum = temp;
-            top = temp;
-        }
-        else{
-            top->next = temp;
-            top = temp;
-        }
-    };
+        temp->next = top;
+        top = temp;
+    }
 
+    string pop(){
+        string name = top->name;
+        top = top->next;
+        return name;
+    }
+
+    string getTop(){
+        return top->name;
+    }
+
+    bool isEmpty(){
+        return (top == nullptr);
+    }
 };
 
 #endif

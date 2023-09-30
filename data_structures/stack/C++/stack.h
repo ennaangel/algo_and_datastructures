@@ -21,9 +21,9 @@ class stack{
     void push(string name){
         Element* temp = new Element;
         temp->name = name;
-        temp->next = nullptr;
         if (bottum == nullptr){
             bottum = temp;
+            bottum-> next = nullptr;
             top = temp;
         }
         else{
@@ -35,6 +35,9 @@ class stack{
     string pop(){
         string name = top->name;
         top = top->next;
+        if (top == nullptr){
+            bottum = nullptr;
+        }
         return name;
     }
 
@@ -42,6 +45,9 @@ class stack{
         return top->name;
     }
 
+    bool isEmpty(){
+        return (bottum == nullptr && top == nullptr);
+    }
 };
 
 #endif

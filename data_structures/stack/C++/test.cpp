@@ -2,13 +2,13 @@
 #include "..\..\resources\C++\logger.h"
 #include <iostream>
 
-class testStack{
+class TestStack{
     //Class to test the stack datastructure
     private:
         PrintLogger logger;
         int numberTestsFailed;
     public:
-    testStack(){
+    TestStack(){
         numberTestsFailed = 0;
     }
     int testFirstPush(stack counts){
@@ -50,6 +50,7 @@ class testStack{
     };
 
     int getNumberTestsFailed(){
+        // Returns the number of tests failed stores it in the logs
         string resultMessage = "[INFO] Number of tests failed: ";
         resultMessage += std::to_string(numberTestsFailed);
         logger.log(resultMessage);
@@ -61,8 +62,8 @@ class testStack{
 
 void main(){
     stack counts;
-    testStack stacktester;
-    stacktester.testFirstPush(counts);
-    stacktester.testSecondPush(counts);
-    stacktester.getNumberTestsFailed();
+    TestStack stackTester;
+    stackTester.testFirstPush(counts);
+    stackTester.testSecondPush(counts);
+    stackTester.getNumberTestsFailed();
 }
